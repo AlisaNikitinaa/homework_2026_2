@@ -53,8 +53,6 @@ QUnit.module("Тестируем функцию sortByLength", function() {
 
         assert.throws(function () {
             sortByLength([1, 2, 3]);
-        }, TypeError, 'Выбрас    ывает TypeError при массиве не-строк');
+        }, TypeError, 'Выбрасывает TypeError при массиве не-строк');
     });
 });
-
-
