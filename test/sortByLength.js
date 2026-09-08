@@ -35,10 +35,11 @@ QUnit.module("Тестируем функцию sortByLength", function() {
     });
 
     QUnit.test('Возвращает новый массив, не изменяя исходный', function (assert) {
-    const input = ['fig', 'kiwi', 'apple', 'grape', 'banana'];
-    const result = sortByLength(input);
+        const input = ['banana', 'fig', 'apple', 'kiwi', 'grape'];
+        const result = sortByLength(input);
 
-    assert.notStrictEqual(result, input, 'Результат - новый массив, а не тот же самый объект');
-    assert.deepEqual(input, ['fig', 'kiwi', 'apple', 'grape', 'banana'], 'Исходный массив не изменился');
+        assert.notStrictEqual(result, input, 'Результат - новый массив, а не тот же самый объект');
+        assert.deepEqual(input, ['banana', 'fig', 'apple', 'kiwi', 'grape'], 'Исходный массив не изменился');
+    });
 });
-});
+
