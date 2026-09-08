@@ -41,5 +41,20 @@ QUnit.module("Тестируем функцию sortByLength", function() {
         assert.notStrictEqual(result, input, 'Результат - новый массив, а не тот же самый объект');
         assert.deepEqual(input, ['banana', 'fig', 'apple', 'kiwi', 'grape'], 'Исходный массив не изменился');
     });
+
+    QUnit.test('Выбрасывает TypeError, если передан не массив строк', function (assert) {
+        assert.throws(function () {
+            sortByLength(null);
+        }, TypeError, 'Выбрасывает TypeError при null');
+
+        assert.throws(function () {
+            sortByLength('apple');
+        }, TypeError, 'Выбрасывает TypeError при строке вместо массива');
+
+        assert.throws(function () {
+            sortByLength([1, 2, 3]);
+        }, TypeError, 'Выбрас    ывает TypeError при массиве не-строк');
+    });
 });
+
 

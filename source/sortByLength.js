@@ -5,6 +5,8 @@
  *
  * @param {string[]} strings - исходный массив строк.
  *
+ * @throws {TypeError} если передан не массив строк.
+ *
  * @example
  * // returns ["fig", "kiwi", "apple", "grape", "banana"]
  * sortByLength(["apple", "banana", "kiwi", "fig", "grape"]);
@@ -12,6 +14,10 @@
  * @returns {string[]} - новый массив с отсортированными строками.
  */
 const sortByLength = function (strings) {
+    if (!Array.isArray(strings) || !strings.every(item => typeof item === 'string')) {
+        throw new TypeError('strings должен быть массивом строк');
+    }
+
     const copy = strings.slice();
 
     copy.sort(function (a, b) {
