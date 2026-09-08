@@ -1,3 +1,5 @@
+'use strict'
+
 QUnit.module("Тестируем функцию sortByLength", function() {
     QUnit.test("Правильно сортирует строки по длине", function(assert) {
         const result = sortByLength(["apple", "banana", "kiwi", "fig", "grape"]);
