@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 QUnit.module("Тестируем функцию sortByLength", function() {
     QUnit.test("Правильно сортирует строки по длине", function(assert) {
