@@ -1,5 +1,3 @@
-'use strict';
-
 QUnit.module("Тестируем функцию sortByLength", function() {
     QUnit.test("Правильно сортирует строки по длине", function(assert) {
         const result = sortByLength(["apple", "banana", "kiwi", "fig", "grape"]);
@@ -29,8 +27,16 @@ QUnit.module("Тестируем функцию sortByLength", function() {
         assert.deepEqual(result, ["", "a", "b", "ab", "abc"], "Пустая строка и строки разной длины сортируются корректно");
     });
 
-   QUnit.test("Правильно сортирует строки с числами внутри", function(assert) {
+    QUnit.test("Правильно сортирует строки с числами внутри", function(assert) {
         const result = sortByLength(["a1", "b22", "c", "d333"]);
         assert.deepEqual(result, ["c", "a1", "b22", "d333"], "Строки с числами сортируются по длине");
     });
+
+    QUnit.test('Возвращает новый массив, не изменяя исходный', function (assert) {
+    const input = ['fig', 'kiwi', 'apple', 'grape', 'banana'];
+    const result = sortByLength(input);
+
+    assert.notStrictEqual(result, input, 'Результат - новый массив, а не тот же самый объект');
+    assert.deepEqual(input, ['fig', 'kiwi', 'apple', 'grape', 'banana'], 'Исходный массив не изменился');
+});
 });
