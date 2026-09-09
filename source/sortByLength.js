@@ -13,19 +13,31 @@
  *
  * @returns {string[]} - новый массив с отсортированными строками.
  */
-const sortByLength = function (strings) {
+const sortByLength = strings => {
     if (!Array.isArray(strings) || !strings.every(item => typeof item === 'string')) {
         throw new TypeError('strings должен быть массивом строк');
     }
 
-    const copy = strings.slice();
+    const result = strings.slice();
 
-    copy.sort(function (a, b) {
-        if (a.length !== b.length) {
-            return a.length - b.length;
+    for (let i = 0; i < result.length; i += 1) {
+        for (let j = 0; j < result.length - i - 1; j += 1) {
+            const a = result[j];
+            const b = result[j + 1];
+            let shouldSwap = false;
+
+            if (a.length > b.length) {
+                shouldSwap = true;
+            } else if (a.length === b.length && a > b) {
+                shouldSwap = true;
+            }
+
+            if (shouldSwap) {
+                result[j] = b;
+                result[j + 1] = a;
+            }
         }
-        return a.localeCompare(b);
-    });
+    }
 
-    return copy;
+    return result;
 };
