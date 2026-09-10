@@ -28,7 +28,7 @@ const sortByLength = strings => {
 
             if (a.length > b.length) {
                 shouldSwap = true;
-            } else if (a.length === b.length && a > b) {
+            } else if (a.length === b.length && a.localeCompare(b) > 0) {
                 shouldSwap = true;
             }
 
