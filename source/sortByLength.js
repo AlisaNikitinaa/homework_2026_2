@@ -24,13 +24,7 @@ const sortByLength = strings => {
         for (let j = 0; j < result.length - i - 1; j += 1) {
             const a = result[j];
             const b = result[j + 1];
-            let shouldSwap = false;
-
-            if (a.length > b.length) {
-                shouldSwap = true;
-            } else if (a.length === b.length && a.localeCompare(b) > 0) {
-                shouldSwap = true;
-            }
+            const shouldSwap = a.length > b.length || (a.length === b.length && a.localeCompare(b) > 0);
 
             if (shouldSwap) {
                 result[j] = b;
